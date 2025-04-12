@@ -1,13 +1,17 @@
-import requests
 import pandas as pd
 
-# Step 1: Fetch data from the SpaceX API
+# Load SpaceX launch data directly using pandas
 url = 'https://api.spacexdata.com/v4/launches'
-response = requests.get(url)
-data = response.json()
+df = pd.read_json(url)
 
-# Step 2: Convert the JSON data to a DataFrame
-df = pd.DataFrame(data)
-
-# Step 3: Print the first five rows
+# Print first five rows
+print("Preview of SpaceX launches:")
 print(df.head())
+
+# Print column names
+print("\nColumns:")
+print(df.columns)
+
+# Print data types of each column
+print("\nData types:")
+print(df.dtypes)
